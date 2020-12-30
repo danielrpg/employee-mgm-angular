@@ -46,6 +46,18 @@ export class EmployeeRestApiService {
     )
   }
 
+  getSingleEmployee(id: number): Observable<Employee> {
+    return this.http.get<Employee>(this.apiURL + 'employees/'+ id);
+  }
+
+  deleteEmployee(id: number): Observable<Employee>{
+    return this.http.delete<Employee>(this.apiURL + 'employees/' + id, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
   handleError(fail: any) {
     let errorMessage = '';
     if(fail.error instanceof ErrorEvent) {

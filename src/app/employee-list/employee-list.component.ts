@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../shared/employee';
 import { EmployeeRestApiService } from '../shared/employee-rest-api.service';
 
 @Component({
@@ -21,8 +20,12 @@ export class EmployeeListComponent implements OnInit {
       this.employees = data;
     });
   }
-
+  
   removeEmployee(id: number) {
-    console.log(id);
+    if (window.confirm('Are you sure, you want to delete?')){
+      this.empRestApi.deleteEmployee(id).subscribe((data: {}) => {
+        this.loadEmployees();
+      })
+    }
   }
 }

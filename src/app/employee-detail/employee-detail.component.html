@@ -1,13 +1,36 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Employee {{employeeId}}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#" routerLink="/employee-list">Employee List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" routerLink="/create-employee">Create Employee</a>
+  </li>
+</ul>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{employee.name}}</li>
-      <li class="list-group-item">{{employee.email}}</li>
-      <li class="list-group-item">{{employee.cellphone}}</li>
-      <li class="list-group-item">{{employee.address}}</li>
-      <li class="list-group-item">{{employee.code}}</li>
-      <li class="list-group-item">{{employee.status}}</li>
-    </ul>
+    <div class="col-6">
+      <div class="col align-self-center">
+        <div class="card">
+          <div class="card-header">
+            Employee {{employeeId}}
+            <!-- {{employee | json}} -->
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{employee.name}}</li>
+            <li class="list-group-item">{{employee.email}}</li>
+            <li class="list-group-item">{{employee.cellphone}}</li>
+            <li class="list-group-item">{{employee.address}}</li>
+            <li class="list-group-item">{{employee.code}}</li>
+            <li class="list-group-item">{{employee.status}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+    </div>
   </div>
+</div>

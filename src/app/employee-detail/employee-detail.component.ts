@@ -11,7 +11,7 @@ import { EmployeeRestApiService } from '../shared/employee-rest-api.service';
 export class EmployeeDetailComponent implements OnInit {
 
   employeeId: number;
-  employee: Employee;
+  employee = new Employee();
 
   constructor(private activatedRoute: ActivatedRoute, 
               private employeeApi: EmployeeRestApiService) { }
@@ -30,6 +30,10 @@ export class EmployeeDetailComponent implements OnInit {
   loadEmployee(id: number): void {
     this.employeeApi.getEmployeeById(id).subscribe((data: Employee) => {
       this.employee = data;
+      //console.info(data as Employee);
     });
+    // this.employeeApi.getSingleEmployee(id).subscribe(data => {
+    //   this.employee = data;
+    // })
   }
 }
