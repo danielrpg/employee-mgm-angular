@@ -22,7 +22,7 @@ export class EmployeeListComponent implements OnInit {
   }
   
   removeEmployee(id: number) {
-    if (window.confirm('Are you sure, you want to delete?')){
+    if (window.confirm('Are you sure, you want to delete?')) {
       this.empRestApi.deleteEmployee(id).subscribe((data: {}) => {
         this.loadEmployees();
       })
